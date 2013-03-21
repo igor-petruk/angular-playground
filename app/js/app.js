@@ -7,8 +7,10 @@ function TodoController($scope){
     };
 
     $scope.addTodo = function(){
-        $scope.todos.push({text:$scope.formTodoText, done:false});
-        $scope.formTodoText = ""
+        if (!_.isEmpty($scope.formTodoText)){
+            $scope.todos.push({text:$scope.formTodoText, done:false});
+            $scope.formTodoText = "";
+        }
     };
 
     $scope.clearCompleted = function(){
